@@ -26,6 +26,10 @@ jobs:
       value: $[ dependencies.setupMaestroVars.outputs['setReleaseVars.AzDOPipelineId'] ]
     - name: AzDOBuildId
       value: $[ dependencies.setupMaestroVars.outputs['setReleaseVars.AzDOBuildId'] ]
+    - name: skipComponentGovernanceDetection
+      value: true
+    - name: runCodesignValidationInjection
+      value: false
   pool:
     name: Hosted VS2017
   steps:

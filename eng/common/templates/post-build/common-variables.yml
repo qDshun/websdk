@@ -90,3 +90,10 @@ variables:
     value: https://dotnetclimsrc.blob.core.windows.net/dotnet/index.json
   - name: InternalInstallersBlobFeedKey
     value: $(dotnetclimsrc-access-key)
+
+  # Do not run codesign or component detection in the validation/publishing stages. They do not
+  # create any new outputs.
+  - name: skipComponentGovernanceDetection
+    value: true
+  - name: runCodesignValidationInjection
+    value: false

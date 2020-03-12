@@ -37,6 +37,10 @@ jobs:
     - name: _BuildConfig
       value: ${{ parameters.configuration }}
     - group: Publish-Build-Assets
+    - name: skipComponentGovernanceDetection
+      value: true
+    - name: runCodesignValidationInjection
+      value: false
 
   steps:
   - ${{ if and(eq(parameters.runAsPublic, 'false'), ne(variables['System.TeamProject'], 'public'), notin(variables['Build.Reason'], 'PullRequest')) }}:
